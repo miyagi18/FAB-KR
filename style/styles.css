@@ -1,0 +1,338 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f8f4e9 0%, #e8e4d9 100%);
+    /* Мягкий бежевый градиентный фон */
+    min-height: 100vh;
+}
+
+/* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fffefc;
+    /* Очень светлый кремовый фон */
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(139, 107, 64, 0.1);
+    /* Мягкая тень */
+    border-left: 1px solid #e8e4d9;
+    border-right: 1px solid #e8e4d9;
+}
+
+/* ===== ШАПКА ===== */
+.header {
+    background: linear-gradient(135deg, #8a9b6e 0%, #6b7d55 100%);
+    /* Мягкий оливково-зеленый градиент */
+    color: #fffefc;
+    text-align: center;
+    padding: 30px;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #d4b88c;
+    /* Золотистая полоса снизу */
+}
+.logo {
+    max-height: 60px; /* Регулируйте по необходимости */
+    width: auto;
+}
+ 
+/* ===== НАВИГАЦИЯ ===== */
+.nav {
+    background: #8a9b6e;
+    /* Мягкий оливково-зеленый */
+    padding: 20px 0;
+    border-bottom: 2px solid #d4b88c;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    color: #fffefc;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    background: rgba(255, 254, 252, 0.15);
+    transform: translateY(-2px);
+    border: 1px solid #d4b88c;
+    /* Золотистая рамка при наведении */
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.content {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ===== ГЛАВНАЯ СТРАНИЦА ===== */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-title {
+    font-size: 32px;
+    color: #6b7d55;
+    /* Мягкий зеленый */
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.profile-photo {
+    width: 220px;
+    height: 280px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin: 20px auto;
+    border: 4px solid #d4b88c;
+    /* Золотистая рамка */
+    box-shadow: 0 8px 25px rgba(212, 184, 140, 0.3);
+    /* Мягкая золотистая тень */
+}
+
+.profile-name {
+    font-size: 24px;
+    color: #8a9b6e;
+    /* Оливково-зеленый */
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.profile-group {
+    font-size: 18px;
+    color: #8b6b3d;
+    /* Теплый коричневый */
+    margin: 5px 0;
+}
+
+.about-me {
+    background: linear-gradient(135deg, #f9f7f0 0%, #f1eee3 100%);
+    /* Очень светлый бежевый */
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    border-left: 5px solid #d4b88c;
+    /* Золотистая полоса */
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5a5a5a;
+    /* Мягкий темно-серый */
+}
+
+/* ===== НАВЫКИ ===== */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #a8b894 0%, #8a9b6e 100%);
+    /* Мягкий зеленый градиент */
+    color: #fffefc;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(138, 155, 110, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid #d4b88c;
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(138, 155, 110, 0.3);
+}
+
+/* ===== ОПЫТ РАБОТЫ ===== */
+.experience-section {
+    margin-top: 50px;
+}
+
+.section-title {
+    font-size: 28px;
+    color: #6b7d55;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.experience-card {
+    background: #f9f7f0;
+    /* Светлый бежевый фон */
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(139, 107, 64, 0.08);
+    border-left: 4px solid #d4b88c;
+    /* Золотистая полоса */
+    transition: transform 0.3s ease;
+    border: 1px solid #e8e4d9;
+}
+
+.experience-card:hover {
+    transform: translateX(5px);
+}
+
+.experience-title {
+    font-size: 20px;
+    color: #8a9b6e;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.experience-desc {
+    color: #6b7d55;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== КОНТАКТЫ ===== */
+.contacts-container {
+    text-align: center;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, #f9f7f0 0%, #f1eee3 100%);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    border-left: 4px solid #d4b88c;
+    color: #5a5a5a;
+    border: 1px solid #e8e4d9;
+}
+
+.contact-button {
+    background: linear-gradient(135deg, #a8b894 0%, #8a9b6e 100%);
+    color: #fffefc;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    border: 1px solid #d4b88c;
+}
+
+.contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(138, 155, 110, 0.3);
+}
+
+/* ===== ТОВАРЫ ===== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background: #f9f7f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(139, 107, 64, 0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+    border: 1px solid #e8e4d9;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(139, 107, 64, 0.12);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid #d4b88c;
+}
+
+.product-name {
+    font-size: 18px;
+    color: #6b7d55;
+    margin: 15px 0 10px;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #8b6b3d;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* ===== НОВОСТИ ===== */
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.news-card {
+    background: #f9f7f0;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(139, 107, 64, 0.08);
+    border-left: 4px solid #d4b88c;
+    transition: transform 0.3s ease;
+    border: 1px solid #e8e4d9;
+}
+
+.news-card:hover {
+    transform: translateX(5px);
+}
+
+.news-title {
+    font-size: 22px;
+    color: #6b7d55;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.news-meta {
+    color: #8b6b3d;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+}
+
+.news-text {
+    color: #5a5a5a;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== ФУТЕР ===== */
+.footer {
+    background: linear-gradient(135deg, #8a9b6e 0%, #6b7d55 100%);
+    color: #fffefc;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    border-top: 3px solid #d4b88c;
+}
