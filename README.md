@@ -32,5 +32,5 @@
 - Группа: ЭФБО-04-24
 
 - ## Ссылки
-- [Публичная страница на GitHub Pages](https://miyagi18.github.io/FAB-P1/src/index.html)
+- [Публичная страница на GitHub Pages](https://miyagi18.github.io/FAB-KR/)
 
