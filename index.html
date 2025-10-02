@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="style/styles.css">
 </head>
 
-<body>
-    <div class="page-container">
+<body class="page-container">
+    <header>
         <div class="header">
             <img src="images/Circassian_logo.png" alt="лого AdigaStore" class="logo">
         </div>
-        <div class="nav">
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
@@ -21,55 +21,60 @@
                 <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
             </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <div class="profile-header">
+            <h1 class="profile-title">Информация об авторе</h1>
+            <img class="profile-photo" src="images/profile.jpg" alt="Фото автора">
+            <h2 class="profile-name">Гаужаев Тимур Олегович</h2>
+            <p class="profile-group">ЭФБО-04-24</p>
         </div>
-        <div class="content">
-            <div class="profile-header">
-                <h1 class="profile-title">Информация об авторе</h1>
-                <img class="profile-photo" src="images/profile.jpg" alt="Фото автора">
-                <h2 class="profile-name">Гаужаев Тимур Олегович</h2>
-                <p class="profile-group">ЭФБО-04-24</p>
-            </div>
 
-            <div class="about-me">
-                <p>Обо мне: Родился в Кабардино-Балкарской республике, городе Нальчик. Очень люблю свою малую родину.
-                    Активно интересуюсь историей своего народа, культурой, языком. В будущем хочу создать
-                    образовательный
-                    проект,
-                    направленный на сохрание, популяризацию адыгского языка, культуры и истории, чтобы подрастающее
-                    поколение сохранило всё это и
-                    передавало следующим поколениям.</p>
-            </div>
+        <div class="about-me">
+            <p>Обо мне: Родился в Кабардино-Балкарской республике, городе Нальчик. Очень люблю свою малую родину.
+                Активно интересуюсь историей своего народа, культурой, языком. В будущем хочу создать
+                образовательный
+                проект,
+                направленный на сохрание, популяризацию адыгского языка, культуры и истории, чтобы подрастающее
+                поколение сохранило всё это и
+                передавало следующим поколениям.</p>
+        </div>
 
-            <div class="skills-container">
-                <div class="skill-tag">Навык 1</div>
-                <div class="skill-tag">Навык 2</div>
-                <div class="skill-tag">Навык 3</div>
-                <div class="skill-tag">Навык 4</div>
-            </div>
+        <div class="skills-container">
+            <div class="skill-tag">Навык 1</div>
+            <div class="skill-tag">Навык 2</div>
+            <div class="skill-tag">Навык 3</div>
+            <div class="skill-tag">Навык 4</div>
+        </div>
 
-            <div class="experience-section">
-                <h2 class="section-title">Мой опыт работы</h2>
-                <div class="experience-card">
+        <section class="experience-section">
+            <h2 class="section-title">Мой опыт работы</h2>
+            <div class="experience-grid">
+                <article class="experience-card">
                     <h3 class="experience-title">Опыт 1</h3>
-                    <p class="experience-desc">Работал помощником в организации национальных молодежных мероприятий</p>
-                </div>
-                <div class="experience-card">
+                    <p class="experience-desc">Работал помощником в организации национальных молодежных мероприятий
+                    </p>
+                </article>
+                <article class="experience-card">
                     <h3 class="experience-title">Опыт 2</h3>
                     <p class="experience-desc">Участвовал в национальных мероприятиях в качестве танцора</p>
-                </div>
-                <div class="experience-card">
+                </article>
+                <article class="experience-card">
                     <h3 class="experience-title">Опыт 3</h3>
-                    <p class="experience-desc">Выступал на республиканской конференции по информационным технологиям</p>
-                </div>
+                    <p class="experience-desc">Выступал на республиканской конференции по информационным технологиям
+                    </p>
+                </article>
             </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>AdigeStore - сохранение и популяризация адыгской культуры</p>
+            <p>© 2025 Гаужаев Т.О. Все права защищены</p>
         </div>
-        <div class="footer">
-            <div class="footer-content">
-                <p>AdigeStore - сохранение и популяризация адыгской культуры</p>
-                <p>© 2025 Гаужаев Т.О. Все права защищены</p>
-            </div>
-        </div>
-    </div>
+    </footer>
+
 </body>
 
 </html>
