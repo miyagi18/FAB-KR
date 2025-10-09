@@ -4,77 +4,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Семестровая работа</title>
+    <title>Главная - AdigaStore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style/styles.css">
+    <style>
+        .bg-custom-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%) !important;
+        }
+        
+        .text-custom-primary {
+            color: var(--color-primary-dark) !important;
+        }
+        
+        .border-custom-accent {
+            border-color: var(--color-accent) !important;
+        }
+        
+        .btn-custom-primary {
+            background: linear-gradient(135deg, #a8b894 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            border: 1px solid var(--color-accent);
+        }
+        
+        .badge-custom {
+            background: linear-gradient(135deg, #a8b894 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            border: 1px solid var(--color-accent);
+        }
+    </style>
 </head>
 
-<body class="page-container">
-    <header>
-        <div class="header">
-            <img src="images/Circassian_logo.png" alt="лого AdigaStore" class="logo">
-        </div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="content">
-        <div class="profile-header">
-            <h1 class="profile-title">Информация об авторе</h1>
-            <img class="profile-photo" src="images/profile.jpg" alt="Фото автора">
-            <h2 class="profile-name">Гаужаев Тимур Олегович</h2>
-            <p class="profile-group">ЭФБО-04-24</p>
-        </div>
-
-        <div class="about-me">
-            <p>Обо мне: Родился в Кабардино-Балкарской республике, городе Нальчик. Очень люблю свою малую родину.
-                Активно интересуюсь историей своего народа, культурой, языком. В будущем хочу создать
-                образовательный
-                проект,
-                направленный на сохрание, популяризацию адыгского языка, культуры и истории, чтобы подрастающее
-                поколение сохранило всё это и
-                передавало следующим поколениям.</p>
+<body class="page-container" data-theme="light">
+    <div class="header">
+            <img src="../images/Circassian_logo.png" alt="лого AdigaStore" class="header__logo">
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
 
-        <div class="skills-container">
-            <div class="skill-tag">Навык 1</div>
-            <div class="skill-tag">Навык 2</div>
-            <div class="skill-tag">Навык 3</div>
-            <div class="skill-tag">Навык 4</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-primary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="bi bi-house me-1"></i>Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/news.html">
+                            <i class="bi bi-newspaper me-1"></i>Новости
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/practices.html">
+                            <i class="bi bi-people me-1"></i>Практики
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/goods.html">
+                            <i class="bi bi-cart me-1"></i>Товары
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contacts.html">
+                            <i class="bi bi-telephone me-1"></i>Контакты
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <section class="experience-section">
-            <h2 class="section-title">Мой опыт работы</h2>
-            <div class="experience-grid">
-                <article class="experience-card">
-                    <h3 class="experience-title">Опыт 1</h3>
-                    <p class="experience-desc">Работал помощником в организации национальных молодежных мероприятий
+    <main class="container my-5">
+        <section class="mb-5">
+            <div class="card shadow-sm border-0" style="background: var(--color-surface-light);">
+                <div class="card-body p-4 text-center">
+                    <h1 class="card-title h2 text-custom-primary mb-4">Информация об авторе</h1>
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center mb-4 mb-md-0">
+                            <img src="images/profile.jpg" alt="Фото автора" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover; border: 4px solid var(--color-accent);">
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="h3 text-custom-primary mb-2">Гаужаев Тимур Олегович</h2>
+                            <p class="mb-3" style="color: var(--color-text);">
+                                ЭФБО-04-24
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="card shadow-sm border-0" style="background: var(--color-surface-light); border-left: 4px solid var(--color-accent);">
+                <div class="card-header" style="background: var(--color-surface-lighter);">
+                    <h3 class="card-title h5 mb-0" style="color: var(--color-text);">
+                        <i class="bi bi-person-circle text-custom-primary me-2"></i>
+                        Обо мне
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text" style="color: var(--color-text);">
+                        Родился в Кабардино-Балкарской республике, городе Нальчик. Очень люблю свою малую родину.
+                        Активно интересуюсь историей своего народа, культурой, языком. В будущем хочу создать
+                        образовательный проект, направленный на сохранение, популяризацию адыгского языка, культуры и истории,
+                        чтобы подрастающее поколение сохранило всё это и передавало следующим поколениям.
                     </p>
-                </article>
-                <article class="experience-card">
-                    <h3 class="experience-title">Опыт 2</h3>
-                    <p class="experience-desc">Участвовал в национальных мероприятиях в качестве танцора</p>
-                </article>
-                <article class="experience-card">
-                    <h3 class="experience-title">Опыт 3</h3>
-                    <p class="experience-desc">Выступал на республиканской конференции по информационным технологиям
-                    </p>
-                </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="card shadow-sm border-0" style="background: var(--color-surface-light);">
+                <div class="card-header" style="background: var(--color-surface-lighter);">
+                    <h3 class="card-title h5 mb-0" style="color: var(--color-text);">
+                        <i class="bi bi-tools text-custom-primary me-2"></i>
+                        Навыки
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-3">
+                            <span class="badge badge-custom w-100 py-2">Национальные танцы</span>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <span class="badge badge-custom w-100 py-2">История</span>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <span class="badge badge-custom w-100 py-2">Знание языка</span>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <span class="badge badge-custom w-100 py-2">Культура</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="card shadow-sm border-0" style="background: var(--color-surface-light);">
+                <div class="card-header" style="background: var(--color-surface-lighter);">
+                    <h3 class="card-title h5 mb-0" style="color: var(--color-text);">
+                        <i class="bi bi-briefcase text-custom-primary me-2"></i>
+                        Мой опыт работы
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100 border-custom-accent" style="background: var(--color-surface-light);">
+                                <div class="card-body">
+                                    <h5 class="card-title text-custom-primary">Опыт 1</h5>
+                                    <p class="card-text" style="color: var(--color-text);">Работал помощником в организации национальных молодежных мероприятий</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-custom-accent" style="background: var(--color-surface-light);">
+                                <div class="card-body">
+                                    <h5 class="card-title text-custom-primary">Опыт 2</h5>
+                                    <p class="card-text" style="color: var(--color-text);">Участвовал в национальных мероприятиях в качестве танцора</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-custom-accent" style="background: var(--color-surface-light);">
+                                <div class="card-body">
+                                    <h5 class="card-title text-custom-primary">Опыт 3</h5>
+                                    <p class="card-text" style="color: var(--color-text);">Выступал на республиканской конференции по информационным технологиям</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
     <footer class="footer">
-        <div class="footer-content">
-            <p>AdigeStore - сохранение и популяризация адыгской культуры</p>
+        <div class="footer__content">
+            <p>AdigaStore - сохранение и популяризация адыгской культуры</p>
             <p>© 2025 Гаужаев Т.О. Все права защищены</p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 
 </html>

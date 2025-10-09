@@ -9,26 +9,31 @@
     <style>
         dialog::backdrop {
             background: rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s ease;
         }
 
         dialog {
             border: none;
             border-radius: 15px;
             padding: 0;
-            box-shadow: 0 10px 30px rgba(139, 107, 64, 0.3);
-            animation: slideIn 0.3s ease;
+            box-shadow: 0 10px 30px var(--color-shadow);
             max-width: 500px;
             width: 90vw;
             max-height: 90vh;
             overflow-y: auto;
-            background: #fffefc;
-            border: 2px solid #d4b88c;
+            background: var(--color-surface);
+            border: 2px solid var(--color-accent);
+            
+            /* Центрирование модального окна */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
         }
 
         .modal-header {
-            background: linear-gradient(135deg, #8a9b6e 0%, #6b7d55 100%);
-            color: #fffefc;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-white);
             padding: 1.5rem;
             border-radius: 12px 12px 0 0;
             margin: 0;
@@ -37,7 +42,7 @@
 
         .modal-header h2 {
             margin: 0;
-            color: #fffefc;
+            color: var(--color-white);
             font-size: 1.5rem;
             font-weight: 300;
             letter-spacing: 1px;
@@ -55,7 +60,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #6b7d55;
+            color: var(--color-primary-dark);
         }
 
         .form-group input,
@@ -63,12 +68,13 @@
         .form-group textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 2px solid #e8e4d9;
+            border: 2px solid var(--color-border);
             border-radius: 8px;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             box-sizing: border-box;
-            background: #f9f7f0;
+            background: var(--color-surface-light);
+            color: var(--color-text);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -76,14 +82,26 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #8a9b6e;
+            border-color: var(--color-primary);
             box-shadow: 0 0 0 3px rgba(138, 155, 110, 0.1);
-            background: #fffefc;
+            background: var(--color-surface);
         }
 
         .form-group textarea {
             min-height: 100px;
             resize: vertical;
+        }
+
+        /* Стили для выпадающего списка в тёмной теме */
+        [data-theme="dark"] .form-group select,
+        [data-theme="dark"] .form-group select option {
+            background: var(--color-surface);
+            color: var(--color-text);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .form-group select:focus {
+            background: var(--color-surface-light);
         }
 
         .modal-actions {
@@ -99,30 +117,30 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             font-weight: 600;
             border: 1px solid transparent;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #a8b894 0%, #8a9b6e 100%);
-            color: #fffefc;
-            border: 1px solid #d4b88c;
+        .btn--primary {
+            background: linear-gradient(135deg, #a8b894 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            border: 1px solid var(--color-accent);
         }
 
-        .btn-primary:hover {
+        .btn--primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(138, 155, 110, 0.3);
         }
 
-        .btn-secondary {
-            background: #f9f7f0;
-            color: #6b7d55;
-            border: 1px solid #e8e4d9;
+        .btn--secondary {
+            background: var(--color-surface-light);
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
         }
 
-        .btn-secondary:hover {
-            background: #e8e4d9;
+        .btn--secondary:hover {
+            background: var(--color-border);
             transform: translateY(-2px);
         }
 
@@ -130,31 +148,11 @@
             color: #e74c3c;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
         /* Адаптивность */
         @media (max-width: 600px) {
             dialog {
-                margin: 1rem;
                 width: calc(100vw - 2rem);
+                margin: 1rem;
             }
 
             .modal-actions {
@@ -165,42 +163,74 @@
                 width: 100%;
             }
         }
+
+        /* Для очень маленьких экранов */
+        @media (max-width: 400px) {
+            dialog {
+                width: 95vw;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 
-<body class="page-container">
+<body class="page-container" data-theme="light">
     <header>
         <div class="header">
-            <img src="../images/Circassian_logo.png" alt="лого AdigaStore" class="logo">
+            <img src="../images/Circassian_logo.png" alt="лого AdigaStore" class="header__logo">
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+                <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+                <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+                <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+                <li class="nav__item nav__item--active"><a class="nav__link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
     </header>
+
     <main class="content">
-        <section class="contacts-container">
+        <section class="contacts">
             <h2 class="section-title">Контакты</h2>
-            <div class="contact-info">
+            <div class="contact__info">
                 <p>Адрес электронной почты: adigestore07@mail.ru</p>
             </div>
-            <div class="contact-info">
+            <div class="contact__info">
                 <p>Адрес: г. Нальчик, ул. Калмыкова, д. 777</p>
             </div>
-            <button class="contact-button" onclick="contactModal.showModal()">Связаться с нами</button>
+            <button class="contact__button" onclick="contactModal.showModal()">Связаться с нами</button>
         </section>
     </main>
+
     <footer class="footer">
-        <div class="footer-content">
-            <p>AdigeStore - сохранение и популяризация адыгской культуры</p>
+        <div class="footer__content">
+            <p>AdigaStore - сохранение и популяризация адыгской культуры</p>
             <p>© 2025 Гаужаев Т.О. Все права защищены</p>
         </div>
     </footer>
+
     <dialog id="contactModal">
         <div class="modal-header">
             <h2>Форма обратной связи</h2>
@@ -237,13 +267,25 @@
                     <textarea id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
                 </div>
                 <div class="modal-actions">
-                    <button type="button" class="btn btn-secondary" onclick="contactModal.close()">Отмена</button>
-                    <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                    <button type="button" class="btn btn--secondary" onclick="contactModal.close()">Отмена</button>
+                    <button type="button" class="btn btn--primary" onclick="submitForm()">Отправить</button>
                 </div>
             </form>
         </div>
     </dialog>
+
     <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
         // Функция для отправки формы
         function submitForm() {
             const form = document.getElementById('feedbackForm');
@@ -264,7 +306,6 @@
                 message: formData.get('message')
             };
             
-            // В реальном приложении здесь был бы AJAX-запрос
             console.log('Данные формы:', data);
 
             // Показываем уведомление об успешной отправке

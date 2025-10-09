@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body class="page-container" data-theme="light">
+    <header>
+        <div class="header">
+            <img src="images/Circassian_logo.png" alt="лого AdigaStore" class="header__logo">
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active"><a class="nav__link" href="index.html">Главная</a></li>
+                <li class="nav__item"><a class="nav__link" href="pages/news.html">Новости</a></li>
+                <li class="nav__item"><a class="nav__link" href="pages/practices.html">Практики</a></li>
+                <li class="nav__item"><a class="nav__link" href="pages/goods.html">Товары</a></li>
+                <li class="nav__item"><a class="nav__link" href="pages/contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="profile">
+            <h1 class="profile__title">Информация об авторе</h1>
+            <img class="profile__photo" src="images/profile.jpg" alt="Фото автора">
+            <h2 class="profile__name">Гаужаев Тимур Олегович</h2>
+            <p class="profile__group">ЭФБО-04-24</p>
+        </div>
+
+        <div class="about">
+            <p class="card__text">Обо мне: Родился в Кабардино-Балкарской республике, городе Нальчик. Очень люблю свою
+                малую родину.
+                Активно интересуюсь историей своего народа, культурой, языком. В будущем хочу создать
+                образовательный проект, направленный на сохрание, популяризацию адыгского языка, культуры и истории,
+                чтобы подрастающее поколение сохранило всё это и передавало следующим поколениям.</p>
+        </div>
+
+        <div class="skills">
+            <div class="skill">Навык 1</div>
+            <div class="skill">Навык 2</div>
+            <div class="skill">Навык 3</div>
+            <div class="skill">Навык 4</div>
+        </div>
+
+        <section class="experience">
+            <h2 class="section-title">Мой опыт работы</h2>
+            <div class="experience__grid">
+                <article class="card">
+                    <h3 class="card__title">Опыт 1</h3>
+                    <p class="card__text">Работал помощником в организации национальных молодежных мероприятий</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Опыт 2</h3>
+                    <p class="card__text">Участвовал в национальных мероприятиях в качестве танцора</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Опыт 3</h3>
+                    <p class="card__text">Выступал на республиканской конференции по информационным технологиям</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <p>AdigaStore - сохранение и популяризация адыгской культуры</p>
+            <p>© 2025 Гаужаев Т.О. Все права защищены</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+
+</html>

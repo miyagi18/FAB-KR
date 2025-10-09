@@ -4,51 +4,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товары</title>
+    <title>Товары - AdigaStore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../style/styles.css">
+    <style>
+        /* Основные цвета */
+        .bg-primary-custom {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%) !important;
+        }
+
+        .text-primary-custom {
+            color: var(--color-primary-dark) !important;
+        }
+
+        /* Стили для карточек товаров */
+        .product-card {
+            background: var(--color-surface-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        /* Обводка для всех карточек */
+        .product-card {
+            border-color: var(--color-accent) !important;
+        }
+
+        /* Стиль для выбранной карточки - используем тень вместо изменения границы */
+        .product-card.selected {
+            background: linear-gradient(135deg, var(--color-surface-light) 0%, rgba(212, 184, 140, 0.1) 100%) !important;
+            box-shadow: 0 0 0 2px var(--color-accent), var(--shadow-hover) !important;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Убираем стандартный фокус у карточек */
+        .product-card:focus {
+            outline: none;
+        }
+    </style>
 </head>
 
-<body class="page-container">
-    <header>
-        <div class="header">
-            <img src="../images/Circassian_logo.png" alt="лого AdigaStore" class="logo">
+<body class="page-container" data-theme="light">
+    <div class="header">
+        <img src="../images/Circassian_logo.png" alt="лого AdigaStore" class="header__logo">
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+            <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary-custom">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="bi bi-house me-1"></i>Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">
+                            <i class="bi bi-newspaper me-1"></i>Новости
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="practices.html">
+                            <i class="bi bi-people me-1"></i>Практики
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="goods.html">
+                            <i class="bi bi-cart me-1"></i>Товары
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">
+                            <i class="bi bi-telephone me-1"></i>Контакты
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="content">
-        <h2 class="section-title">Наши товары</h2>
-        <div class="products-grid">
-            <article class="product-card">
-                <img class="product-image" src="../images/goods1.jpg" alt="Фото товара 1" width="526" height="526">
-                <h3 class="product-name">Мужская Черкеска</h3>
-                <p class="product-price">15000 руб.</p>
-            </article>
-            <article class="product-card">
-                <img class="product-image" src="../images/goods2.jpg" alt="Фото товара 2">
-                <h3 class="product-name">Хьэтеяк1уэ баш</h3>
-                <p class="product-price">2000 руб.</p>
-            </article>
-            <article class="product-card">
-                <img class="product-image" src="../images/goods3.jpg" alt="Фото товара 3" width="526" height="526">
-                <h3 class="product-name">Адыгэ фащэ</h3>
-                <p class="product-price">30000 руб.</p>
-            </article>
+    </nav>
+
+    <main class="container my-5">
+        <h2 class="text-center mb-5 section-title">Наши товары</h2>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 product-card discount" data-state="discount">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        -50%
+                    </span>
+                    <img src="../images/goods1.jpg" class="card-img-top" alt="Мужская Черкеска"
+                        style="height: 250px; object-fit: cover; border-bottom: 2px solid var(--color-accent);">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary-custom">Мужская Черкеска</h5>
+                        <div class="price-container">
+                            <span class="text-decoration-line-through me-2" style="color: var(--color-text-light);">30000 руб.</span>
+                            <span class="text-danger fw-bold">15000 руб.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 product-card" data-state="normal">
+                    <img src="../images/goods2.jpg" class="card-img-top" alt="Хьэтеяк1уэ баш"
+                        style="height: 250px; object-fit: cover; border-bottom: 2px solid var(--color-accent);">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary-custom">Хьэтеяк1уэ баш</h5>
+                        <p class="card-text fw-bold" style="color: var(--color-text-light);">2000 руб.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 product-card" data-state="normal">
+                    <img src="../images/goods3.jpg" class="card-img-top" alt="Адыгэ фащэ"
+                        style="height: 250px; object-fit: cover; border-bottom: 2px solid var(--color-accent);">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary-custom">Адыгэ фащэ</h5>
+                        <p class="card-text fw-bold" style="color: var(--color-text-light);">30000 руб.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
+
     <footer class="footer">
-        <div class="footer-content">
-            <p>AdigeStore - сохранение и популяризация адыгской культуры</p>
+        <div class="footer__content">
+            <p>AdigaStore - сохранение и популяризация адыгской культуры</p>
             <p>© 2025 Гаужаев Т.О. Все права защищены</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Обработка кликов по карточкам товаров
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function () {
+                // Переключаем класс выделения
+                this.classList.toggle('selected');
+
+                // Обновляем состояние в data-атрибуте
+                if (this.classList.contains('selected')) {
+                    this.setAttribute('data-state', 'selected');
+                } else {
+                    // Возвращаем исходное состояние в зависимости от типа карточки
+                    if (this.classList.contains('discount')) {
+                        this.setAttribute('data-state', 'discount');
+                    } else {
+                        this.setAttribute('data-state', 'normal');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
